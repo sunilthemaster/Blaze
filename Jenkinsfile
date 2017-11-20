@@ -5,6 +5,7 @@ pipeline {
       steps {
         sh 'echo date'
         mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'somasekhar.kuruva@riversand.com', cc: 'somasekhar.kuruva@riversand.com')
+        sh '*/10 14 *   *   *'
       }
     }
   }
