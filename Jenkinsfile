@@ -1,19 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('MailTest') {
-      steps {
-        sh 'echo date'
-        mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'sunil.agarwal@riversand.com')
-      }
-    }
     stage('User check') {
       steps {
-        sh '''sh \'env > env.txt\' 
-for (String i : readFile(\'env.txt\').split("\\r?\\n")) {
-    println i
-}
-
+        sh '''echo -e "\\n--------"
+env > /home/jenkins/env.txt
+cat /home/jenkins/env.txt
+echo -e "\\n--------"
 echo -e "\\n--------$USER-------"
 
 if [ $USER == "admin" ]; then
