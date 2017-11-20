@@ -7,6 +7,11 @@ pipeline {
 env > /home/jenkins/env.txt
 cat /home/jenkins/env.txt
 echo -e "\\n--------"
+
+echo $BUILD_USER
+echo $BUILD_USER_ID
+echo $BUILD_USER_EMAIL
+
 echo -e "\\n--------$USER-------"
 
 if [ $USER == "admin" ]; then
