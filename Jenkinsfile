@@ -9,7 +9,9 @@ pipeline {
     }
     stage('User check') {
       steps {
-        sh '''echo -e "\\n--------$USER-------"
+        sh '''env.each { name, value -> println "Name: $name -> Value $value" }
+
+echo -e "\\n--------$USER-------"
 
 if [ $USER == "admin" ]; then
     echo "Triggered by admin"
