@@ -9,7 +9,10 @@ pipeline {
     }
     stage('User check') {
       steps {
-        sh '''env.each { name, value -> println "Name: $name -> Value $value" }
+        sh '''sh \'env > env.txt\' 
+for (String i : readFile(\'env.txt\').split("\\r?\\n")) {
+    println i
+}
 
 echo -e "\\n--------$USER-------"
 
