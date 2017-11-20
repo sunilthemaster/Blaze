@@ -4,12 +4,14 @@ pipeline {
     stage('MailTest') {
       steps {
         sh 'echo date'
-        mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'vinay.kumar@riversand.com', cc: 'sunil.agarwal@riversand.com')
+        mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'sunil.agarwal@riversand.com')
       }
     }
     stage('User check') {
       steps {
-        sh '''if [ $USER == "admin" ]; then
+        sh '''echo -e "\\n--------$USER-------"
+
+if [ $USER == "admin" ]; then
     echo "Triggered by admin"
 else
     echo "Triggered by $USER"
