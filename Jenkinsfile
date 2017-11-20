@@ -4,7 +4,7 @@ pipeline {
     stage('MailTest') {
       steps {
         sh 'echo date'
-        mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'vinay.kumar@riversand.com', cc: 'sunil.agarwal@riversand.com')
+        mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'somasekhar.kuruva@riversand.com', cc: 'somasekhar.kuruva@riversand.com')
         sh '''triggers {
     cron(\'0 13 *   *   *\')
   }'''
