@@ -7,6 +7,16 @@ pipeline {
         mail(subject: 'Test-Mail', body: 'Version : ${env.BuildNumber} ; version1 : ${env.DeployVersion}', to: 'vinay.kumar@riversand.com', cc: 'sunil.agarwal@riversand.com')
       }
     }
+    stage('User check') {
+      steps {
+        sh '''if [ $USER == "admin" ]; then
+    echo "Triggered by admin"
+else
+    echo "Triggered by $USER"
+    exit 1
+fi'''
+      }
+    }
   }
   environment {
     KEY_FOLDER_PATH = '/var/lib/jenkins/keys/'
