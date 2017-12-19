@@ -26,7 +26,7 @@ fi'''
         }
         stage('send mail') {
           steps {
-            mail(subject: 'testmail', body: 'testmail', to: 'vinay.kumar@riversand.com')
+            mail(subject: 'testmail', body: 'testmail \\n newline', to: 'vinay.kumar@riversand.com')
           }
         }
       }
