@@ -2,8 +2,10 @@ pipeline {
   agent any
   stages {
     stage('User check') {
-      steps {
-        sh '''echo -e "\\n--------"
+      parallel {
+        stage('User check') {
+          steps {
+            sh '''echo -e "\\n--------"
 env > /home/jenkins/env.txt
 cat /home/jenkins/env.txt
 echo -e "\\n--------"
@@ -20,6 +22,13 @@ else
     echo "Triggered by $USER"
     exit 1
 fi'''
+          }
+        }
+        stage('send mail') {
+          steps {
+            mail(subject: 'testmail', body: 'testmail', to: 'vinay.kumar@riversand.com')
+          }
+        }
       }
     }
   }
