@@ -26,7 +26,7 @@ fi'''
         }
         stage('send mail') {
           steps {
-            mail(subject: 'testmail', body: 'testmail \\n newline', to: 'vinay.kumar@riversand.com')
+            mail(subject: 'testmail', body: '<html>      <head>          <title>Example document</title>      </head>      <body>          <table>              <tr>                  <td>                      <!-- Your code is inserted here -->                  </td>              </tr>          </table>      </body>  </html>', to: 'vinay.kumar@riversand.com')
           }
         }
       }
